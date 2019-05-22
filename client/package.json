@@ -1,0 +1,29 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Web client to hosting pages",
+  "main": "ssr-server.js",
+  "scripts": {
+    "dev": "webpack --mode development ./src/App.js --output ./public/src/main.js",
+    "build": "webpack --mode production ./src/App.js --output ./public/src/main.js",
+    "server": "nodemon ssr-server.js"
+  },
+  "author": "Janggeun Song",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^1.19.0",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
