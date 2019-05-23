@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import NavBar from '../component/NavBar'
+import ArticleBoard from '../component/ArticleForm'
+import Footer from '../component/Footer'
 
 export default class App extends Component {
 
@@ -8,7 +10,8 @@ export default class App extends Component {
         return (
             <div>
                 <NavBar />
-                <h1>Hello from react.js</h1>
+                <ArticleBoard />
+                <Footer />
             </div>
         )
     }
