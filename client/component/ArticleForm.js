@@ -1,47 +1,60 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchPosts } from '../src/actions/postAction'
 
-export default class ArticleForm extends Component {
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         articles: []
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     fetch("http://localhost:5500/api/articles")
-    //         .then(response => response.json())
-    //         .then(200, items => this.setState({
-    //             articles: items
-    //         }))
-    //         .catch(err => console.log(err))
-    // }
-
+export class ArticleForm extends Component {
+    
+    constructor(props) {
+        super(props)
+        this.state = {
+            Title: "",
+            articles: [
+                {
+                    id: 1,
+                    Title: "Milk",
+                    date: "01.15.2017"
+                },
+                {
+                    id: 2,
+                    Title: "Egg",
+                    date: "03.03.2019"
+                }
+            ]
+        }
+    }
+    
+    componentWillMount() {
+        this.props.fetchPosts();
+    }    
+    
     render() {
-        // let items = this.state.articles;
+        const items = this.props.articles.map(
+            item => (
+                <tbody key={item.id}>
+                    <tr key={item.id} className="table-primary">
+                        <th scope="row">{item.id}</th>
+                        <td>{item.Title}</td>
+                        <td>{item.date}</td>
+                    </tr>
+                </tbody>
+            )
+        );
         return (
             <div>
-                {/* {items.map(
-                    item => (
-                        <table className="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="table-active">
-                                    <th scope="row">{item.id}</th>
-                                    <td>{item.Title}</td>
-                                    <td>{item.date}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    )
-                )} */}
+                
                 <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    { items }
+                </table>
+
+
+                {/* <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -56,7 +69,7 @@ export default class ArticleForm extends Component {
                             <td>2015:03:01</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> */}
 
                 <span className="badge badge-success">This</span>
                 <span className="badge badge-danger">Is</span>
@@ -68,3 +81,9 @@ export default class ArticleForm extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    articles: state.posts.items
+})
+
+export default connect(mapStateToProps, { fetchPosts })(ArticleForm)
