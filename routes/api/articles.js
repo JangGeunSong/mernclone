@@ -31,9 +31,8 @@ router.post('/', (request, response) => {
 // @desc   Delete An article
 // @access Public 
 router.delete('/:id', (request, response) => {
-    console.log(request.params.id)
     Article.findById(request.params.id)
-        .then(article => article.remove().then(() => response.json({ success: true })))
+        .then(article => article.remove().then(() => response.json({ article: article, success: true })))
         .catch(err => response.status(404).json({ success: false }));
 })
 // Don't need to type in api/articles

@@ -17,6 +17,9 @@ export class ArticleForm extends Component {
         if(nextProps.newArticle) {
             this.props.articles.unshift(nextProps.newArticle)
         }
+        else {
+            this.props.fetchPosts()
+        }
     }
     
     deleteItem(_id) {

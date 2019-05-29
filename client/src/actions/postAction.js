@@ -28,6 +28,7 @@ export const createPost = postData => dispatch => {
                 payload: post
             })
         })
+        .catch(err => console.log(err))
 }
 
 export const deletePost = deleteDataID => dispatch => {
@@ -47,5 +48,6 @@ export const deletePost = deleteDataID => dispatch => {
                 payload: post
             })
         })
+        .catch(err => console.log(err))
     
 }
