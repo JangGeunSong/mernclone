@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POSTS } from '../actions/types'
+import { FETCH_POSTS, NEW_POSTS, DELETE_POSTS } from '../actions/types'
 
 export const fetchPosts = () => dispatch => {
     console.log("Fetching...")
@@ -28,4 +28,24 @@ export const createPost = postData => dispatch => {
                 payload: post
             })
         })
+}
+
+export const deletePost = deleteDataID => dispatch => {
+    console.log("Delete article message sending to the server")
+
+    fetch("http://localhost:5500/api/articles/" + deleteDataID, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({id: deleteDataID})
+    })
+        .then(response => response.json())
+        .then(post => {
+            dispatch({
+                type: DELETE_POSTS,
+                payload: post
+            })
+        })
+    
 }

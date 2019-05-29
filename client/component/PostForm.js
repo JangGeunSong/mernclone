@@ -20,7 +20,7 @@ export class PostForm extends Component {
         const post = {
             Title: this.state.Title
         }
-
+        // Call action
         this.props.createPost(post)
     }
 

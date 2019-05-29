@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchPosts } from '../src/actions/postAction'
+import { fetchPosts, deletePost } from '../src/actions/postAction'
 
 export class ArticleForm extends Component {
     
@@ -9,17 +10,31 @@ export class ArticleForm extends Component {
     }
     
     componentWillMount() {
-        this.props.fetchPosts();
-    }    
+        this.props.fetchPosts()
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.newArticle) {
+            this.props.articles.unshift(nextProps.newArticle)
+        }
+    }
     
+    deleteItem(_id) {
+        console.log("ongoing")
+        
+        // Call action
+        this.props.deletePost(_id)
+    }
+
     render() {
         const items = this.props.articles.map(
-            item => (
-                <tbody key={item._id}>
-                    <tr key={item._id} className="table-primary">
-                        <th scope="row">{item._id}</th>
-                        <td>{item.Title}</td>
-                        <td>{item.date}</td>
+            ({ _id, Title, date }) => (
+                <tbody key={_id}>
+                    <tr key={_id} className="table-primary">
+                        <th scope="row">{_id}</th>
+                        <td>{Title}</td>
+                        <td>{date}</td>
+                        <td><button type="button" className="btn btn-warning" onClick={this.deleteItem.bind(this, _id)}>Delete</button></td>
                     </tr>
                 </tbody>
             )
@@ -33,6 +48,7 @@ export class ArticleForm extends Component {
                             <th scope="col">ID</th>
                             <th scope="col">Title</th>
                             <th scope="col">Date</th>
+                            <th scope="col">N/A</th>
                         </tr>
                     </thead>
                     { items }
@@ -49,8 +65,16 @@ export class ArticleForm extends Component {
     }
 }
 
+ArticleForm.propTypes = {
+    fetchPosts: propTypes.func.isRequired,
+    deletePost: propTypes.func.isRequired,
+    articles: propTypes.array.isRequired,
+    newArticle: propTypes.object
+}
+
 const mapStateToProps = state => ({
-    articles: state.posts.items
+    articles: state.posts.items,
+    newArticle: state.posts.item
 })
 
-export default connect(mapStateToProps, { fetchPosts })(ArticleForm)
+export default connect(mapStateToProps, { fetchPosts, deletePost })(ArticleForm)
