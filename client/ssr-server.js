@@ -5,7 +5,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static('public'))
 
-app.get("/", (requrest, response) => {
+app.set('views', __dirname)
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
+
+app.get("*", (requrest, response) => {
     response.render('./public/index.html')
 })
 
