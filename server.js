@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const { ApolloServer, gql } = require('apollo-server-express')
+
 const articles = require('./routes/api/articles');
 // API linked in the articles const
 
@@ -30,6 +32,37 @@ app.use(function(req, res, next) {
 
 // Use Routes
 app.use('/api/articles', articles);
+
+let typeDefs = gql`
+    type Query {
+        hello: String,
+        name: String,
+        age: String
+    }
+
+    schema {
+        query: Query
+    }
+`
+
+let resolvers = {
+    Query: {
+        hello(root) {
+            return 'Hello world!!'
+        },
+        name(root) {
+            return 'Micheal'
+        },
+        age(root) {
+            return '25'
+        }
+    }
+}
+
+const apServer = new ApolloServer({ typeDefs, resolvers })
+const path = '/graphql'
+
+apServer.applyMiddleware({ app, path })
 
 const port = process.env.PORT || 5500;
 
