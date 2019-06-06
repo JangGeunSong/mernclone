@@ -37,7 +37,7 @@ let typeDefs = gql`
     type Query {
         hello: String,
         name: String,
-        age: String
+        age: Int
     }
 
     schema {
@@ -54,7 +54,7 @@ let resolvers = {
             return 'Micheal'
         },
         age(root) {
-            return '25'
+            return 25
         }
     }
 }
