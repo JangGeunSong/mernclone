@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchPosts, deletePost } from '../src/actions/postAction'
+import { fetchPosts, deletePost } from '../../../src/actions/postAction'
 
 export class ArticleForm extends Component {
     

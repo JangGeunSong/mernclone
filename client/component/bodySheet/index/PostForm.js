@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { createPost } from '../src/actions/postAction'
+import { createPost } from '../../../src/actions/postAction'
 
 export class PostForm extends Component {
     constructor(props) {

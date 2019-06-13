@@ -4,67 +4,56 @@ import { Provider } from 'react-redux'
 import { Route } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 
-import NavBar from '../component/NavBar'
-import ArticleBoard from '../component/ArticleForm'
-import Footer from '../component/Footer'
-import PostForm from '../component/PostForm'
+import HomePage from '../component/bodySheet/index/HomePage'
+import About from '../component/bodySheet/about/About'
+import Features from '../component/bodySheet/features/Features'
+import Pricing from '../component/bodySheet/pricing/Pricing'
 
 import store from './store'
 
 export default class App extends Component {
 
-    index() {
-        return (
-            <div>
-                <NavBar />
-                <PostForm />
-                <ArticleBoard />
-                <Footer />
-            </div>
-        )
-    }
-
-    features() {
-        return (
-            <div>
-                <NavBar />
-                <PostForm />
-                <ArticleBoard />
-                <Footer />
-            </div>
-        )
-    }
-
-    pricing() {
-        return (
-            <div>
-                <NavBar />
-                <PostForm />
-                <ArticleBoard />
-                <Footer />
-            </div>
-        )
-    }
-
-    about() {
-        return (
-            <div>
-                <NavBar />
-                <PostForm />
-                <ArticleBoard />
-                <Footer />
-            </div>
-        )
-    }
-
     render() {
+        const IndexComponent = () => (
+            <div>
+                <HomePage />
+            </div>
+        )
+        const AboutComponent = () => (
+            <div>
+                <About />
+            </div>
+        )
+        const FeaturesComponent = () => (
+            <div>
+                <Features />
+            </div>
+        )
+        const PricingComponent = () => (
+            <div>
+                <Pricing />
+            </div>
+        )
         return (
             <Provider store={store}>
                 <BrowserRouter>
-                    <Route path="/" component={this.index.bind(this)} />
-                    <Route path="/about" component={this.about.bind(this)} />
-                    <Route path="/features" component={this.features.bind(this)} />
-                    <Route path="/pricing" component={this.pricing.bind(this)} />
+                    <Route 
+                        path="/" 
+                        exact
+                        component={ IndexComponent } 
+                    />
+                    <Route 
+                        path="/about" 
+                        component={ AboutComponent } 
+                    />
+                    <Route 
+                        path="/features" 
+                        component={ FeaturesComponent } 
+                    />
+                    <Route 
+                        path="/pricing" 
+                        component={ PricingComponent } 
+                    />
                 </BrowserRouter>
             </Provider>
         )
