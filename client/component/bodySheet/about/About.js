@@ -9,6 +9,7 @@ export default class About extends Component {
                 <NavBar />
                 <h1> Hello Customer! </h1>
                 <p>This is our About page on the application!.</p>
+                <p>Made by Song Janggeun</p>
                 <Footer />
             </div>
         )
