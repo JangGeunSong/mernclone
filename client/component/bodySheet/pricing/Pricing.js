@@ -3,6 +3,11 @@ import NavBar from '../../navBar/NavBar'
 import Footer from '../../footer/Footer'
 
 export default class Pricing extends Component {
+
+    componentDidMount() {
+        document.title = 'Pricing';
+    }
+
     render() {
         return (
             <div>

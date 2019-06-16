@@ -3,6 +3,11 @@ import NavBar from '../../navBar/NavBar'
 import Footer from '../../footer/Footer'
 
 export default class About extends Component {
+
+    componentDidMount() {
+        document.title = 'About';
+    }
+
     render() {
         return (
             <div>

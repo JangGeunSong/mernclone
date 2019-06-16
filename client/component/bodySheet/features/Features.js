@@ -3,6 +3,11 @@ import NavBar from '../../navBar/NavBar'
 import Footer from '../../footer/Footer'
 
 export default class Features extends Component {
+
+    componentDidMount() {
+        document.title = 'Features';
+    }
+
     render() {
         return (
             <div>
