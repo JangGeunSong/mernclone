@@ -8,6 +8,7 @@ import HomePage from '../component/bodySheet/index/HomePage'
 import About from '../component/bodySheet/about/About'
 import Features from '../component/bodySheet/features/Features'
 import Pricing from '../component/bodySheet/pricing/Pricing'
+import NotFound from '../component/bodySheet/notFound/NotFound'
 
 import store from './store'
 
@@ -34,6 +35,11 @@ export default class App extends Component {
                 <Pricing />
             </div>
         )
+        const NotFoundComponent = () => (
+            <div>
+                <NotFound />
+            </div>
+        )
         return (
             <Provider store={store}>
                 <BrowserRouter>
@@ -53,6 +59,10 @@ export default class App extends Component {
                     <Route 
                         path="/pricing" 
                         component={ PricingComponent } 
+                    />
+                    <Route 
+                        path="*"
+                        component = { NotFoundComponent }
                     />
                 </BrowserRouter>
             </Provider>

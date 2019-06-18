@@ -1,6 +1,19 @@
 import React, { Component } from 'react'
 
 export default class NavBar extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            searchItem : "",
+        }
+        this.onChange = this.onChange.bind(this)
+    }
+
+    onChange(e) {
+        this.setState({ searchItem: e.target.value })
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -25,7 +38,7 @@ export default class NavBar extends Component {
                     </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="text" placeholder="Search" />
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search" onChange={this.onChange} value={this.state.searchItem} />
                         <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
