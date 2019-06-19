@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Route } from 'react-router'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom'
 
 import HomePage from '../component/bodySheet/index/HomePage'
 import About from '../component/bodySheet/about/About'
@@ -43,27 +43,18 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <BrowserRouter>
-                    <Route 
-                        path="/" 
-                        exact
-                        component={ IndexComponent } 
-                    />
-                    <Route 
-                        path="/about" 
-                        component={ AboutComponent } 
-                    />
-                    <Route 
-                        path="/features" 
-                        component={ FeaturesComponent } 
-                    />
-                    <Route 
-                        path="/pricing" 
-                        component={ PricingComponent } 
-                    />
-                    <Route 
-                        path="*"
-                        component = { NotFoundComponent }
-                    />
+                    <Switch>
+                        <Route path='/' exact component={IndexComponent} />
+                        <Route path='/about' component={AboutComponent} />
+                        <Route path='/features' component={FeaturesComponent} />
+                        <Route path='/pricing' component={PricingComponent} />
+                        <Route component={NotFoundComponent} />
+                    </Switch>
+                    {
+                        /*
+                            That Router add 404 Not Found componenet must need the switch componenet.
+                        */
+                    }
                 </BrowserRouter>
             </Provider>
         )
