@@ -15,3 +15,8 @@ Or if you want to run one terminal then try this on the server side folder
 >npm run dev
 
 I will start in this time.
+
+This app deployed using heroku 
+
+http://nameless-tor-92655.herokuapp.com/ 
+That is the URL of the app.
