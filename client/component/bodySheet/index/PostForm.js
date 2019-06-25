@@ -22,6 +22,8 @@ export class PostForm extends Component {
         }
         // Call action
         this.props.createPost(post)
+
+        this.setState({ Title: '' })
     }
 
     onChange(e) {

@@ -7,7 +7,6 @@ import { BrowserRouter, Switch } from 'react-router-dom'
 import HomePage from '../component/bodySheet/index/HomePage'
 import About from '../component/bodySheet/about/About'
 import Features from '../component/bodySheet/features/Features'
-import Pricing from '../component/bodySheet/pricing/Pricing'
 import NotFound from '../component/bodySheet/notFound/NotFound'
 
 import store from './store'
@@ -30,11 +29,6 @@ export default class App extends Component {
                 <Features />
             </div>
         )
-        const PricingComponent = () => (
-            <div>
-                <Pricing />
-            </div>
-        )
         const NotFoundComponent = () => (
             <div>
                 <NotFound />
@@ -47,7 +41,6 @@ export default class App extends Component {
                         <Route path='/' exact component={IndexComponent} />
                         <Route path='/about' component={AboutComponent} />
                         <Route path='/features' component={FeaturesComponent} />
-                        <Route path='/pricing' component={PricingComponent} />
                         <Route component={NotFoundComponent} />
                     </Switch>
                     {

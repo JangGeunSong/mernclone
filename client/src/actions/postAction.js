@@ -1,7 +1,7 @@
 import { FETCH_POSTS, NEW_POSTS, DELETE_POSTS } from '../actions/types'
 
 export const fetchPosts = () => dispatch => {
-    fetch("/api/articles")
+    fetch("http://localhost:5500/api/articles")
         .then(response => response.json())
         .then(posts => dispatch({
             type: FETCH_POSTS,
@@ -11,7 +11,7 @@ export const fetchPosts = () => dispatch => {
 }
 
 export const createPost = postData => dispatch => {
-    fetch("/api/articles", {
+    fetch("http://localhost:5500/api/articles", {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -29,7 +29,7 @@ export const createPost = postData => dispatch => {
 }
 
 export const deletePost = deleteDataID => dispatch => {
-    fetch("/api/articles/" + deleteDataID, {
+    fetch("http://localhost:5500/api/articles/" + deleteDataID, {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
