@@ -1,5 +1,6 @@
 import { FETCH_POSTS, NEW_POSTS, DELETE_POSTS } from '../actions/types'
 
+// http://localhost:5500
 export const fetchPosts = () => dispatch => {
     fetch("/api/articles")
         .then(response => response.json())
@@ -9,7 +10,6 @@ export const fetchPosts = () => dispatch => {
         }))
         .catch(err => console.log(err))
 }
-
 export const createPost = postData => dispatch => {
     fetch("/api/articles", {
         method: 'POST',

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchPosts, deletePost } from '../../../src/actions/postAction'
+import Moment from 'react-moment'
 
 export class ArticleForm extends Component {
     
@@ -36,7 +37,7 @@ export class ArticleForm extends Component {
                     <tr key={_id} className="table-primary">
                         <th scope="row">{_id}</th>
                         <td>{Title}</td>
-                        <td>{date}</td>
+                        <td><Moment format="LL LT">{date}</Moment></td>
                         <td><button type="button" className="btn btn-warning" onClick={this.deleteItem.bind(this, _id)}>Delete</button></td>
                     </tr>
                 </tbody>
