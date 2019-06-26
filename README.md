@@ -1,5 +1,6 @@
 This is MERN stack study repository
 
+For development mode.
 >npm install
 
 >npm run server
@@ -18,5 +19,6 @@ I will start in this time.
 
 This app deployed using heroku 
 
+Just watch.
 http://nameless-tor-92655.herokuapp.com/ 
 That is the URL of the app.
