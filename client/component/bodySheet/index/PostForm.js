@@ -8,10 +8,12 @@ export class PostForm extends Component {
         super(props)
         this.state = {
             Title: '',
+            display: 'none'
         }
 
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
+        this.setModal = this.setModal.bind(this)
     }
     
     onSubmit(e) {
@@ -32,12 +34,25 @@ export class PostForm extends Component {
         })
     }
 
+    setModal() {
+        if(this.state.display === 'none') {
+            this.setState({ display: 'block' })
+        }
+        else {
+            this.setState({ display: 'none' })
+        }
+    }
+
     render() {
+        const modalStyle = {
+            display: this.state.display
+        }
         return (
             <div>
                 <h1>Add Item</h1>
                 <form onSubmit={this.onSubmit}>
-                    <div>
+                    <button type="button" className="btn btn-success" onClick={this.setModal}>Create</button>
+                    <div style={modalStyle}>
                         <label>Title</label>
                         <input type="text" className="form-control" name="Title" onChange={this.onChange} value={this.state.Title} placeholder="Enter Item Title"/>
                         <br/>
