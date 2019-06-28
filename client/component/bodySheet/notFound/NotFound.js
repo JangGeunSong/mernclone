@@ -6,6 +6,7 @@ export default class NotFound extends Component {
             <div>
                 <h1>404 Not Found</h1>
                 <h2>Opps this route link is not valid or not exist now on please check the your url and try again!</h2>
+                <p><a href="/">Back To Homepage</a></p>
             </div>
         )
     }
