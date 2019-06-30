@@ -22,3 +22,5 @@ This app deployed using heroku
 Just watch.
 http://nameless-tor-92655.herokuapp.com/ 
 That is the URL of the app.
+
+Update at 6.28 --> the time format in morden way.
