@@ -4,8 +4,8 @@
   "description": "Web client to hosting pages",
   "main": "ssr-server.js",
   "scripts": {
-    "dev": "webpack --mode development ./src/App.js --output ./public/src/main.js",
-    "build": "webpack --mode production ./src/App.js --output ./public/src/main.js",
+    "dev": "webpack --mode development ./src/Index.js --output ./public/src/main.js",
+    "build": "webpack --mode production ./src/Index.js --output ./public/src/main.js",
     "server": "nodemon ssr-server.js",
     "start": "nodemon ssr-server.js"
   },

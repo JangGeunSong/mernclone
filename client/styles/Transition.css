@@ -1,5 +1,5 @@
 /* simple - enter transition 300ms, exit 150ms */
-.fade-appear,
+/* .fade-appear,
 .fade-enter {
     opacity: 0;
     z-index: 1;
@@ -17,7 +17,7 @@
 .fade-exit.fade-exit-active {
     opacity: 0;
     transition: opacity 150ms linear;
-}
+} */
 
 
 
@@ -27,7 +27,7 @@
 
 
 /* advanced - enter transition 800ms, exit 150ms */
-/* .fade-appear,
+.fade-appear,
 .fade-enter {
     opacity: 0;
     z-index: 1;
@@ -69,4 +69,4 @@
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 150ms linear, transform 150ms ease-in;
-} */
+}
