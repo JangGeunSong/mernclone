@@ -26,3 +26,5 @@ That is the URL of the app.
 Update at 6.28 --> the time format in morden way.
 
 This app is updated some days. Now if you explore the pages then animation will occur.
+
+and some improvements will go on
