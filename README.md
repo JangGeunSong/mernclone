@@ -19,12 +19,10 @@ I will start in this time.
 
 This app deployed using heroku 
 
-Just watch.
-http://nameless-tor-92655.herokuapp.com/ 
-That is the URL of the app.
-
 Update at 6.28 --> the time format in morden way.
 
 This app is updated some days. Now if you explore the pages then animation will occur.
 
 and some improvements will go on
+
+Deploy is ended
